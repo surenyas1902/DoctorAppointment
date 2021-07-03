@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <nav aria-label="breadcrumb" class="mt14">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+    </ol>
+  </nav>
+
+  <div class="card" >
+    <div class="card-header">
+      Filters
+    </div>
+    <div class="card-body">
+      <dp-date-picker></dp-date-picker>
+    </div>
+  </div>
+
+  <table class="table table-bordered mt14">
+    <thead>
+      <tr class="text-center">
+        <th scope="col" class="custom-col-width">S.No</th>
+        <th scope="col" class="custom-col-width">Patient</th>
+        <th scope="col" class="custom-col-width">Contact</th>
+        <th scope="col" class="custom-col-width">Appointment Start Time</th>
+        <th scope="col" class="custom-col-width">Appointment End Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let appointment of appointmentList | paginate: { itemsPerPage: 5, currentPage: pageNumber }; let i = index;">
+        <td>{{ appointment._id }}</td>
+        <td>{{ appointment.patientName }}</td>
+        <td>{{ appointment.contactNumber }}</td>
+        <td>{{ appointment.appointmentStartTime | dateFormat:"MM/dd/yyyy hh:mm:ss" }}</td>
+        <td>{{ appointment.appointmentEndTime | dateFormat:"MM/dd/yyyy hh:mm:ss" }}</td>
+      </tr>
+      <tr *ngIf="appointmentList.length === 0">
+        <td colspan="5" class="text-center">No Records found</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls style="text-align:right" (pageChange)="pageNumber = $event"></pagination-controls>
+</div>
