@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IAppointmentList } from '../Models/iappointment-list';
+import { format } from 'date-fns';
+import { SingleCalendarValue, CalendarValue, ISelectionEvent  } from 'ng2-date-picker';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,22 +12,20 @@ export class DashboardComponent implements OnInit {
 
   appointmentList: Array<IAppointmentList> = [];
   pageNumber: number = 1;
+  filterDate: Date = new Date();
 
   constructor() { }
 
   ngOnInit(): void {
-    for(let j = 0; j<10; j++) {
-    const appointment: IAppointmentList = {
-      _id: Math.random().toString(),
-      patientName: "Surendiran S",
-      contactNumber: 1234567890,
-      appointmentStartTime: new Date(),
-      appointmentEndTime: new Date(),
-      gender: "M"
-    };
-    this.appointmentList.push(appointment);
+
   }
 
+  filterData() {
+
+  }
+
+  onDateChange(event: ISelectionEvent) {
+    this.filterDate = new Date(event.date.toString());
   }
 
 }

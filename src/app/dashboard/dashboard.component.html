@@ -10,13 +10,32 @@
       Filters
     </div>
     <div class="card-body">
-      <dp-date-picker></dp-date-picker>
+      <div class="row">
+        <div class="col-sm-1">
+          <label for="">Date: </label>
+        </div>
+        <div class="col-sm-2">
+          <dp-date-picker (onSelect)="onDateChange($event)" theme="dp-material"></dp-date-picker>
+
+        </div>
+        <div class="col-sm-2">
+          <button class="btn btn-info" (click)="filterData()">Search</button>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <table class="table table-bordered mt14">
+  <div class="mt14 text-right">
+    No. of items: {{ appointmentList.length }}
+  </div>
+  <div class="mt14 text-right">
+    Filtered Date: {{ filterDate | dateFormat:"MM/dd/yyyy" }}
+  </div>
+
+  <table class="table table-bordered mt14" style="border-color: black;">
     <thead>
-      <tr class="text-center">
+      <tr class="text-center bg-info">
         <th scope="col" class="custom-col-width">S.No</th>
         <th scope="col" class="custom-col-width">Patient</th>
         <th scope="col" class="custom-col-width">Contact</th>
