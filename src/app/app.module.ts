@@ -33,7 +33,7 @@ import { DateToSecondsPipe } from './Pipes/date-to-seconds.pipe';
     NgxSmartModalModule.forRoot(),
     FormsModule
   ],
-  providers: [AppointmentsService],
+  providers: [AppointmentsService, DateToSecondsPipe, DateFormatPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
