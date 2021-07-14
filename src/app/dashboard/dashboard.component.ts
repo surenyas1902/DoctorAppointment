@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IAppointmentList } from '../Models/iappointment-list';
 import { format } from 'date-fns';
 import { SingleCalendarValue, CalendarValue, ISelectionEvent  } from 'ng2-date-picker';
+import { AppointmentsService } from '../Services/appointments.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,14 +15,17 @@ export class DashboardComponent implements OnInit {
   pageNumber: number = 1;
   filterDate: Date = new Date();
 
-  constructor() { }
+  constructor(private appointmentService: AppointmentsService) { }
 
   ngOnInit(): void {
-
+    this.filterData();
   }
 
   filterData() {
-
+    this.appointmentService.getAppointmentList(format(this.filterDate,"yyyy-MM-dd")).subscribe((value) => {
+      console.log(value)
+      this.appointmentList = value;
+    })
   }
 
   onDateChange(event: ISelectionEvent) {

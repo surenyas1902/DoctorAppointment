@@ -5627,6 +5627,11 @@ ngx-pagination@^5.1.1:
   resolved "https://registry.yarnpkg.com/ngx-pagination/-/ngx-pagination-5.1.1.tgz#f8494da1e5eb0665382349a4d926c13a491bed21"
   integrity sha512-KxHES+Dn6pbetytO9ng2GAdclmo4UcwzFmQyVPWh2xRPbAlv5/ezL2xnDVBFMqCoJQaZagvdQ+ZZFbqGWqAvCQ==
 
+ngx-smart-modal@^7.4.1:
+  version "7.4.1"
+  resolved "https://registry.yarnpkg.com/ngx-smart-modal/-/ngx-smart-modal-7.4.1.tgz#e4051a61c7469c82170c685033ae681842cd5c78"
+  integrity sha512-1vvqavgJYa06lMAgAniuoaLDCNN4i4M7GzWdSTfndrdtknPUwLlXjmr0uJG7NvgeOnZYICWwx/c/dtgHsMjH/Q==
+
 nice-try@^1.0.4:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"

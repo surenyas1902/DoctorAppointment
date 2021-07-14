@@ -1,8 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import "~ngx-smart-modal/ngx-smart-modal";
 
 html {
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   font-size:0.90rem;
+}
+
+.custom-col-width {
+  width: 16%;
+}
+
+.mt14 {
+  margin-top: 15px;
+}
+
+.mb14 {
+  margin-bottom: 14px;
 }

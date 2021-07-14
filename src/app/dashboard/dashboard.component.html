@@ -27,7 +27,7 @@
   </div>
 
   <div class="mt14 text-right">
-    No. of items: {{ appointmentList.length }}
+    No. of Appointments: {{ appointmentList.length }}
   </div>
   <div class="mt14 text-right">
     Filtered Date: {{ filterDate | dateFormat:"MM/dd/yyyy" }}
@@ -39,8 +39,9 @@
         <th scope="col" class="custom-col-width">S.No</th>
         <th scope="col" class="custom-col-width">Patient</th>
         <th scope="col" class="custom-col-width">Contact</th>
-        <th scope="col" class="custom-col-width">Appointment Start Time</th>
-        <th scope="col" class="custom-col-width">Appointment End Time</th>
+        <th scope="col" class="custom-col-width">Appointment Date</th>
+        <th scope="col" class="custom-col-width">Start Time</th>
+        <th scope="col" class="custom-col-width">End Time</th>
       </tr>
     </thead>
     <tbody>
@@ -48,11 +49,12 @@
         <td>{{ appointment._id }}</td>
         <td>{{ appointment.patientName }}</td>
         <td>{{ appointment.contactNumber }}</td>
-        <td>{{ appointment.appointmentStartTime | dateFormat:"MM/dd/yyyy hh:mm:ss" }}</td>
-        <td>{{ appointment.appointmentEndTime | dateFormat:"MM/dd/yyyy hh:mm:ss" }}</td>
+        <td>{{ appointment.appointmentDate | dateFormat:"dd/MMM/yyyy" }}</td>
+        <td>{{ appointment.appointmentStartTime | dateFormat: "hh:mm" }}</td>
+        <td>{{ appointment.appointmentEndTime | dateFormat:"hh:mm" }}</td>
       </tr>
       <tr *ngIf="appointmentList.length === 0">
-        <td colspan="5" class="text-center">No Records found</td>
+        <td colspan="6" class="text-center">No Records found</td>
       </tr>
     </tbody>
   </table>

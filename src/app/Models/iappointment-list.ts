@@ -1,9 +1,10 @@
 export type IAppointmentList = {
-  _id: String;
+  _id?: String;
   patientName: String;
   gender: String;
-  contactNumber: Number;
-  appointmentStartTime: Date;
-  appointmentEndTime: Date;
+  contactNumber: number;
+  appointmentDate: Date;
+  appointmentStartTime: number;
+  appointmentEndTime: number;
 }
 

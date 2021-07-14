@@ -6,7 +6,7 @@ import { format } from 'date-fns';
 })
 export class DateFormatPipe implements PipeTransform {
 
-  transform(value: Date, dateFormat: string): string {
+  transform(value: Date | number, dateFormat: string): string {
     return format(value, dateFormat);
   }
 

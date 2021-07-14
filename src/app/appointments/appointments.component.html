@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <nav aria-label="breadcrumb" class="mt14">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Appointments</li>
+    </ol>
+  </nav>
+  <div class="row">
+    <div class="col-3">
+      <dp-day-calendar theme="dp-material" (onSelect)="onDateChanged($event)" ></dp-day-calendar>
+    </div>
+    <div class="col-9" style="top:0;">
+      <div class="card text-dark bg-light">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              Morning
+            </div>
+            <div class="col text-end">
+              <a class="btn btn-primary" (click)="addSlots()"> + Add Slot</a>
+            </div>
+          </div>
+          <div class="row mt14">
+            <ng-container *ngFor="let appointment of morningAppointments; let i = index;">
+              <div class="col-md-6 col-sm-3 col-xs-3 col-lg-2">
+                <div class="timing" [ngClass]="{'bg-primary text-white': i === currentIndex}">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" [id]="'customRadioInline'+i" name="customRadioInline" class="custom-control-input" (change)="onChangeTime(i)" >
+                  <label class="custom-control-label" [for]="'customRadioInline'+i">{{ appointment.appointmentStartTime | dateFormat:"hh:mm:ss"}}</label>
+                </div>
+              </div>
+              </div>
+            </ng-container>
+          </div>
+          <div class="row" style="margin-top:30px;">
+            <div class="col">
+              Evening
+            </div>
+            <div class="col text-end">
+              <a class="btn btn-primary" (click)="addSlots()"> + Add Slot</a>
+            </div>
+          </div>
+          <div class="row mt14">
+            <ng-container *ngFor="let appointment of eveningAppointments; let i = index;">
+              <div class="col-md-6 col-sm-3 col-xs-3 col-lg-2">
+                <div class="timing">
+                <div class="custom-control custom-radio custom-control-inline">
+                  <input type="radio" [id]="'customRadioInline'+i" name="customRadioInline" class="custom-control-input">
+                  <label class="custom-control-label" [for]="'customRadioInline'+i">{{ appointment.appointmentStartTime | dateFormat:"hh:mm:ss"}}</label>
+                </div>
+              </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
